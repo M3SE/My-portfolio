@@ -7,11 +7,15 @@ import Overview from './components/Overview';
 import ProjectGallery from './components/ProjectGallery';
 import SkillsSummary from './components/SkillsSUmmary';
 import ContactForm from './components/ContactForm';
+import Navbar from './components/Navbar';
+import Journey from './components/Journey';
 
 const App = () => {
   return (
     <div className="App">
+      <Navbar/>
       <Overview />
+      <Journey/>
       <ProjectGallery/>
       <SkillsSummary/>
       <ContactForm/>

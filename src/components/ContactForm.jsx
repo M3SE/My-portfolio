@@ -5,6 +5,7 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subject: '',
     message: ''
   });
 
@@ -25,6 +26,7 @@ const ContactForm = () => {
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Enter a valid email address.";
     }
+    if (!formData.subject.trim()) newErrors.subject = "Subject is required.";
     if (!formData.message.trim()) newErrors.message = "Message is required.";
 
     setErrors(newErrors);
@@ -35,60 +37,72 @@ const ContactForm = () => {
     e.preventDefault();
     if (validateForm()) {
       console.log("Form submitted:", formData);
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', subject: '', message: '' });
       setIsSubmitted(true);
       setTimeout(() => setIsSubmitted(false), 3000); // Clear success message after 3 seconds
     }
   };
 
   return (
-    <section className="p-6 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100">
+    <section id= "contact" className="p-6 text-gray-800 dark:text-gray-100">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-6">Contact Me</h2>
+        <h2 className="text-3xl font-bold text-center mb-8">Contact Me</h2>
         <form
           onSubmit={handleSubmit}
-          className="max-w-lg mx-auto bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg space-y-4"
+          className="max-w-lg mx-auto space-y-4"
         >
           <div>
-            <label className="block text-sm font-bold mb-1">Name</label>
+            <label className="block text-xs font-bold uppercase text-gray-500 mb-1">Name</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full p-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700"
+              className="w-full p-2 border-b border-gray-400 outline-none bg-transparent focus:border-gray-800 dark:focus:border-gray-100"
             />
             {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
           </div>
           <div>
-            <label className="block text-sm font-bold mb-1">Email</label>
+            <label className="block text-xs font-bold uppercase text-gray-500 mb-1">Email</label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full p-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700"
+              className="w-full p-2 border-b border-gray-400 outline-none bg-transparent focus:border-gray-800 dark:focus:border-gray-100"
             />
             {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
           </div>
           <div>
-            <label className="block text-sm font-bold mb-1">Message</label>
+            <label className="block text-xs font-bold uppercase text-gray-500 mb-1">Subject</label>
+            <input
+              type="text"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              required
+              className="w-full p-2 border-b border-gray-400 outline-none bg-transparent focus:border-gray-800 dark:focus:border-gray-100"
+            />
+            {errors.subject && <p className="text-red-500 text-sm">{errors.subject}</p>}
+          </div>
+          <div>
+            <label className="block text-xs font-bold uppercase text-gray-500 mb-1">Message</label>
             <textarea
               name="message"
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full p-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700"
+              className="w-full p-2 border-b border-gray-400 outline-none bg-transparent focus:border-gray-800 dark:focus:border-gray-100"
             ></textarea>
             {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300"
+            className="w-full py-2 px-4 bg-gray-700 text-white font-bold uppercase tracking-wider rounded-md transition duration-300 hover:bg-gray-800"
           >
-            Send Message
+            Send
           </button>
           {isSubmitted && <p className="text-green-500 text-center mt-4">Message sent successfully!</p>}
         </form>

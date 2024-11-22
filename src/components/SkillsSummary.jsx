@@ -1,12 +1,52 @@
 // src/components/SkillsSummary.jsx
 import React from 'react';
+import {
+  SiReact,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiNodedotjs,
+  SiExpress,
+  SiSqlite,
+  SiGit,
+  SiDocker,
+  SiSpring,
+  SiHugo,
+  SiJunit5,
+  SiBootstrap,
+  SiTailwindcss,
+  SiJira,
+  SiFigma,
+  SiAmazonwebservices,
+} from 'react-icons/si';
+import { FaJava } from 'react-icons/fa';
 
 const SkillsSummary = () => {
-  // Example skills (replace with your actual skills)
   const skills = {
-    "Front-End": ["React", "HTML/CSS", "JavaScript"],
-    "Back-End": ["Node.js", "Express", "MongoDB"],
-    "Tools & DevOps": ["Git", "AWS", "Docker"],
+    "Front-End": [
+      { name: "React", icon: <SiReact /> },
+      { name: "HTML", icon: <SiHtml5 /> },
+      { name: "CSS", icon: <SiCss3 /> },
+      { name: "JavaScript", icon: <SiJavascript /> },
+      { name: "Bootstrap", icon: <SiBootstrap /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+    ],
+    "Back-End": [
+      { name: "Node.js", icon: <SiNodedotjs /> },
+      { name: "Express", icon: <SiExpress /> },
+      { name: "Sqlite", icon: <SiSqlite /> },
+      { name: "Spring Boot", icon: <SiSpring /> },
+      { name: "Java", icon: <FaJava /> },
+    ],
+    "Tools & DevOps": [
+      { name: "Git", icon: <SiGit /> },
+      { name: "AWS", icon: <SiAmazonwebservices /> },
+      { name: "Docker", icon: <SiDocker /> },
+      { name: "JUnit", icon: <SiJunit5 /> },
+      { name: "Hugo", icon: <SiHugo /> },
+      { name: "Jira", icon: <SiJira /> },
+      { name: "Figma", icon: <SiFigma /> },
+    ],
   };
 
   return (
@@ -19,7 +59,10 @@ const SkillsSummary = () => {
               <h3 className="text-xl font-semibold mb-4">{category}</h3>
               <ul className="space-y-2">
                 {skillsList.map((skill, i) => (
-                  <li key={i} className="text-md">{skill}</li>
+                  <li key={i} className="flex items-center justify-center space-x-2 text-md">
+                    <span className="text-2xl">{skill.icon}</span>
+                    <span>{skill.name}</span>
+                  </li>
                 ))}
               </ul>
             </div>
