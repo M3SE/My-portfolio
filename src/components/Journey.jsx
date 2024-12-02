@@ -9,9 +9,9 @@ const Journey = () => {
         {/* Timeline */}
         <div className="space-y-8 max-w-3xl">
   <div className="bg-gradient-to-r from-gray-700 to-gray-800 p-6 rounded-md shadow-md">
-    <h3 className="text-xl font-semibold text-orange-500">2018 – Started My Journey</h3>
+    <h3 className="text-xl font-semibold text-green-400">2003 – The Beginning</h3>
     <p className="text-gray-300">
-      Discovered coding as a way to turn my curiosity into a career.
+      Born and raised in Minnesota, 
     </p>
   </div>
   <div className="bg-gradient-to-r from-gray-700 to-gray-800 p-6 rounded-md shadow-md">

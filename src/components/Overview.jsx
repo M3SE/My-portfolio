@@ -5,7 +5,7 @@ const Overview = () => {
   return (
     <section
   id="home"
-  className="relative flex flex-col items-center justify-center text-center h-screen w-full bg-gradient-to-b from-gray-900 via-gray-800 to-[#1E2A22] text-white px-6"
+  className="relative flex flex-col items-center justify-center text-center h-screen w-full bg-gradient-to-b from-gray-900 via-gray-900 to-[#1E2A22] text-white px-6"
 >
   {/* Profile Image */}
   <div className="flex flex-col items-center">
